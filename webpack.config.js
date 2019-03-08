@@ -36,7 +36,7 @@ const config = {
             chunks: ['index']
         }), new HtmlWebpackPlugin({
             filename: 'login.html', //打包好后，新建的html名字为first.html
-            template: './src/temp/index.html', //以src下面的index.html为模板去创建新的html文件
+            template: './src/temp/login.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['login']
         })
