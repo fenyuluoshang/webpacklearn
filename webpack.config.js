@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
     entry: {
         index: './src/index.js',
-        login: './src/login.js'
+        login: './src/login.js',
+        sigup: './src/sigup.js'
     },
     output: {
         filename: 'assets/[name].[hash].js',
@@ -46,6 +46,12 @@ const config = {
             template: './src/temp/login.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['login'],
+            minify: true
+        }), new HtmlWebpackPlugin({
+            filename: 'sigup.html', //打包好后，新建的html名字为first.html
+            template: './src/temp/sigup.html', //以src下面的index.html为模板去创建新的html文件
+            hash: true,
+            chunks: ['sigup'],
             minify: true
         })
     ]
