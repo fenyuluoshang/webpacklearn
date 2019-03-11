@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 
 const config = {
@@ -16,9 +17,12 @@ const config = {
     },
     module: {
         rules: [{
-                test: /\.scss/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [{
-                    loader: 'style-loader'
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../../'
+                    }
                 }, {
                     loader: 'css-loader'
                 }, {
@@ -29,7 +33,7 @@ const config = {
                 test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'assets/[hash].[ext]'
+                    name: 'assets/media/[hash].[ext]'
                 }
             }
         ]
@@ -53,6 +57,10 @@ const config = {
             hash: true,
             chunks: ['sigup'],
             minify: true
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[hash].css',
+            chunkFilename: 'assets/css/[id].[hash].css',
         })
     ]
 };
