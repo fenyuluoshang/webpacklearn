@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //通过 npm 安装
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
 const config = {
@@ -44,24 +45,37 @@ const config = {
             template: './src/temp/index.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['index'],
-            minify: true
+            minify: {
+                removeComments: true,
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true
+            }
         }), new HtmlWebpackPlugin({
             filename: 'login.html', //打包好后，新建的html名字为first.html
             template: './src/temp/login.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['login'],
-            minify: true
+            minify: {
+                removeComments: true,
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true
+            }
         }), new HtmlWebpackPlugin({
             filename: 'sigup.html', //打包好后，新建的html名字为first.html
             template: './src/temp/sigup.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['sigup'],
-            minify: true
+            minify: {
+                removeComments: true,
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true
+            }
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[hash].css',
             chunkFilename: 'assets/css/[id].[hash].css',
-        })
+        }),
+        new OptimizeCssAssetsPlugin()
     ]
 };
 
