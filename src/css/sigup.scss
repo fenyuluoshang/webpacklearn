@@ -13,22 +13,28 @@ $h1size-mini-fontsize:28px;
     height: 20vh;
 }
 
-.tittle{
+.tittle {
     text-align: center;
+}
+
+.button--group {
+    margin-top: 10px;
 }
 
 
 @media (min-width:$media-screen-width) {
-    .center{
+    .center {
         padding-top: 5vh;
         padding-right: 5%;
         padding-left: 5%;
     }
+
     .contian {
         width: 70%;
         padding: 0 15%;
     }
-    .tittle{
+
+    .tittle {
         font-size: $h1size-fontsize;
     }
 }

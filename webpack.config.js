@@ -9,7 +9,8 @@ const config = {
         login: './src/login.js',
         sigup: './src/sigup.js',
         change: './src/change.js',
-        query: './src/query.js'
+        query: './src/query.js',
+        adminlogin: './src/adminlogin.js'
     },
     output: {
         filename: 'assets/js/[name].[hash].js',
@@ -106,6 +107,16 @@ const config = {
             template: './src/temp/query.html', //以src下面的index.html为模板去创建新的html文件
             hash: true,
             chunks: ['query'],
+            minify: {
+                removeComments: true,
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true
+            }
+        }), new HtmlWebpackPlugin({
+            filename: 'admin/index.html', //打包好后，新建的html名字为first.html
+            template: './src/temp/adminlogin.html', //以src下面的index.html为模板去创建新的html文件
+            hash: true,
+            chunks: ['adminlogin'],
             minify: {
                 removeComments: true,
                 collapseInlineTagWhitespace: true,

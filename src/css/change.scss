@@ -40,6 +40,10 @@ $h1size-mini-fontsize:28px;
     }
 }
 
+.button--group {
+    margin-top: 10px;
+}
+
 @media (min-width:$media-screen-width) {
     .menu {
         margin-top: 2vh;
