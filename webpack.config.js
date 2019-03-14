@@ -12,7 +12,7 @@ const config = {
         query: './src/query.js'
     },
     output: {
-        filename: 'assets/[name].[hash].js',
+        filename: 'assets/js/[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
